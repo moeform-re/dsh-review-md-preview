@@ -1,0 +1,19 @@
+# This plugin's bundle patch layer, applied after every earlier bundle layer
+# (notably @deepseek-ai/dsh-web-app's, which declares the stock `ui-deliverables`
+# row with the BARE package name '@deepseek-ai/dsh-client-ui-deliverables').
+# Disabling that row removes the stock module load, its served client bundle,
+# and every slot and dictionary registration in one move; the inserted row
+# mounts this package's host half (package.json "main" -> host/ui-deliverables.mjs)
+# and, because its name is the BARE package name this package's dsh.client
+# declaration is discovered through, serves the Markdown-preview patched copy in
+# lib/client.js to the browser. The name MUST stay a bare package name: the
+# client-modules scanner skips subpath rows entirely (locatePkgJson ->
+# exactPackageSpecifier), which is exactly how trisoul_x's own main row works.
+# Remove this plugin from the profile's dsh.profile.bundles to restore the stock
+# bundle unchanged.
+- id: ui-deliverables
+  disabled: true
+
+- insert:
+    - id: ui-deliverables-md-preview
+      name: dsh-review-md-preview

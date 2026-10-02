@@ -1,0 +1,48 @@
+{
+  "name": "dsh-review-md-preview",
+  "version": "0.1.0",
+  "description": "Markdown preview & rendered side-by-side compare for the DeepSeek Harness changes-review tab (preview/source toggle, row-paired red/green diff with empty-side fillers).",
+  "type": "module",
+  "license": "MIT",
+  "author": { "name": "moeform-re" },
+  "repository": { "type": "git", "url": "git+https://github.com/moeform-re/dsh-review-md-preview.git" },
+  "main": "host/ui-deliverables.mjs",
+  "exports": {
+    ".": "./host/ui-deliverables.mjs",
+    "./host/*": "./host/*.mjs",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": ["cordis.patch.yml", "host", "lib", "tests", "README.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "keywords": ["dsh", "deepseek-harness", "dsh-plugin", "markdown", "preview", "diff", "review"],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-ui-deliverables": "0.2.0-rc.2"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-ui-deliverables": { "optional": true }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-ui-deliverables": "0.2.0-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": [
+        "./cordis.patch.yml"
+      ]
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-tool",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  }
+}
