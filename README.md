@@ -1,6 +1,17 @@
 # dsh-review-md-preview
 
-DeepSeek Harness（DSH）评审页的 Markdown 预览插件：`.md` 文件的改动默认**以渲染后的样子对比**，工具栏一键切回源码对比。
+Markdown preview & rendered diff for the DeepSeek Harness changes-review tab — a changed `.md` file opens as **rendered Markdown by default**, one click back to the source diff.
+
+中文：DeepSeek Harness（DSH）评审页的 Markdown 预览插件——`.md` 文件的改动默认**以渲染后的样子对比**，工具栏一键切回源码对比。
+
+![评审页预览对比视图：改前 / 改后双栏渲染](assets/preview-compare.png)
+
+## 什么时候需要它
+
+- 评审页（查看每轮文件改动的页面）里改的是 Markdown 文件——README、文档、笔记、论文——想直接看**渲染后的效果**，而不是两栏源码
+- 想对比**渲染前 / 渲染后**的差异（rendered before/after diff），而不是源码行级 diff
+- AI 改完文档后，想快速核对它到底改了哪段
+- 找 "markdown preview"、"rendered diff"、"changes-review tab"、"评审页 Markdown 预览" 的人，就是它在等的人
 
 ## 功能
 
